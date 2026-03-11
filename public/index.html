@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abyssal Depths - Idle Underwater Survival</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Manage your deep sea research station in Abyssal Depths.">
+</head>
+<body>
+    <div id="app-container">
+        <!-- Auth Screen -->
+        <div id="auth-screen" class="glass-panel">
+            <h1 id="auth-title">Abyssal Depths</h1>
+            <p id="auth-subtitle">Descend into the unknown</p>
+            <form id="auth-form">
+                <input type="text" id="username-input" placeholder="Operative ID" required />
+                <input type="password" id="password-input" placeholder="Passcode" required />
+                <button type="submit" id="login-btn" class="btn primary-btn">Initialize Connection</button>
+                <button type="button" id="register-btn" class="btn secondary-btn">Register New Operative</button>
+            </form>
+            <div id="auth-message"></div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="hidden">
+            <header id="game-header" class="glass-panel">
+                <div id="user-info">Operative: <span id="display-username"></span></div>
+                <div id="resource-display">
+                    <div class="resource">
+                        <span class="res-icon">💾</span> Data: <span id="data-points-display">0</span>
+                    </div>
+                    <div class="resource">
+                        <span class="res-icon">🌊</span> Depth: <span id="depth-display">0</span>m
+                    </div>
+                </div>
+                <button id="logout-btn" class="btn secondary-btn small">Disconnect</button>
+            </header>
+
+            <main id="game-main">
+                <!-- Left Panel: Clicker & Status -->
+                <section id="clicker-section" class="glass-panel">
+                    <h2 id="clicker-title">Sensor Array</h2>
+                    <div id="sensor-btn-container">
+                        <button id="manual-scan-btn" class="pulse-btn">
+                            <div class="radar-sweep"></div>
+                            <span>Run Manual Scan</span>
+                        </button>
+                    </div>
+                    <div id="production-stats">
+                        <p>Auto-Gather: <span id="data-per-sec">0</span>/sec</p>
+                    </div>
+                </section>
+
+                <!-- Right Panel: Shop / Upgrades -->
+                <section id="shop-section" class="glass-panel">
+                    <h2 id="shop-title">Engineering Bay</h2>
+                    
+                    <div class="shop-item" id="buy-oxygen-btn">
+                        <div class="item-info">
+                            <h3>Observation Drone</h3>
+                            <p>Automates data gathering (+1/sec)</p>
+                            <p>Owned: <span id="oxygen-gen-count">0</span></p>
+                        </div>
+                        <div class="item-action">
+                            <span class="cost" id="oxygen-cost">10</span> 💾
+                        </div>
+                    </div>
+
+                    <div class="shop-item" id="buy-hull-btn">
+                        <div class="item-info">
+                            <h3>Hull Reinforcement</h3>
+                            <p>Increases max dive depth limit</p>
+                            <p>Owned: <span id="hull-count">0</span></p>
+                        </div>
+                        <div class="item-action">
+                            <span class="cost" id="hull-cost">50</span> 💾
+                        </div>
+                    </div>
+
+                    <div class="shop-item" id="buy-thermal-btn">
+                        <div class="item-info">
+                            <h3>Thermal Heater</h3>
+                            <p>Boosts efficiency in freezing zones</p>
+                            <p>Owned: <span id="thermal-count">0</span></p>
+                        </div>
+                        <div class="item-action">
+                            <span class="cost" id="thermal-cost">100</span> 💾
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>

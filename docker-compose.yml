@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  abyssal-depths:
+    build: .
+    container_name: abyssal-depths-app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./database.sqlite:/usr/src/app/database.sqlite
+    restart: unless-stopped
